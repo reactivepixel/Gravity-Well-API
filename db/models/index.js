@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import config from "../config/config.json";
+import config from "../config/config.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

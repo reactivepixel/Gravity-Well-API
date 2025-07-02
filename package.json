@@ -2,7 +2,7 @@
   "name": "serverless",
   "version": "1.0.0",
   "description": "This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.",
-  "main": "handler.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

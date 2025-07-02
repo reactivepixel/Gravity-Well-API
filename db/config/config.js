@@ -1,0 +1,31 @@
+export default {
+  development: {
+    use_env_variable: "DATABASE_URL",
+    dialect: "postgres",
+    pool: {
+      max: 10,
+      min: 0,
+      idle: 10000,
+    },
+    logging: false,
+  },
+  test: {
+    use_env_variable: "DATABASE_URL",
+    dialect: "postgres",
+  },
+  production: {
+    use_env_variable: "DATABASE_URL",
+    dialect: "postgres",
+    dialectOptions: {
+      options: {
+        requestTimeout: 99000,
+      },
+    },
+    pool: {
+      max: 10,
+      min: 0,
+      idle: 10000,
+    },
+    logging: false,
+  },
+};
