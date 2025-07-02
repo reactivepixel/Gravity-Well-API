@@ -11,7 +11,7 @@ provider:
   versionFunctions: false # Skip Lambda Code Storage
   memorySize: 128 # optional, in MB, default is 1024, max is 10240
   timeout: 20 # optional, in seconds, default is 6, max is 900
-  # environment: ${file(.env/${sls:stage, 'dev'}.yml):}
+  environment: ${file(.env/${sls:stage, 'dev'}.yml):}
 
   httpApi:
     cors:
