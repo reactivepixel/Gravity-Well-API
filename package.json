@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "push": "git add -A && git commit -m 'chore: bump version' && npm version patch && git push && git push --tags"
+    "push": "git add -A && git commit -m 'chore: bump version' && npm version patch && git push --tags"
   },
   "repository": {
     "type": "git",
