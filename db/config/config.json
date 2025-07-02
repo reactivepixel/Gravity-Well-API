@@ -1,6 +1,7 @@
 {
   "development": {
     "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
     "pool": {
       "max": 10,
       "min": 0,
@@ -9,10 +10,12 @@
     "logging": false
   },
   "test": {
-    "use_env_variable": "DATABASE_URL"
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
     "dialectOptions": {
       "options": {
         "requestTimeout": 99000

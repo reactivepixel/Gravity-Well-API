@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import config from "../config/config.js";
+import config from "../config/config.json";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -9,12 +9,17 @@ const __dirname = dirname(__filename);
 const env = process.env.NODE_ENV || "development";
 const dbConfig = config[env];
 
-const sequelize = new Sequelize(
-  dbConfig.database,
-  dbConfig.username,
-  dbConfig.password,
-  dbConfig
-);
+// default config
+// const sequelize = new Sequelize(
+//   dbConfig.database,
+//   dbConfig.username,
+//   dbConfig.password,
+//   dbConfig
+// );
+
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  logging: process.env.SQL_LOGGING == "true" ? console.log : false, //Disable Logging for Unit Testing
+}); // Postgress
 
 const models = {};
 
