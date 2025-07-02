@@ -39,3 +39,10 @@ functions:
           method: get
   pong:
     handler: handler.pong
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 5000
