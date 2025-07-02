@@ -39,6 +39,8 @@ functions:
           method: get
   pong:
     handler: handler.pong
+  db_test:
+    handler: handler.db_test
 
 plugins:
   - serverless-offline
