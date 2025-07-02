@@ -1,0 +1,41 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: apextion
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: gravity-aws
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: api
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  versionFunctions: false # Skip Lambda Code Storage
+  memorySize: 128 # optional, in MB, default is 1024, max is 10240
+  timeout: 20 # optional, in seconds, default is 6, max is 900
+  # environment: ${file(.env/${sls:stage, 'dev'}.yml):}
+
+  httpApi:
+    cors:
+      allowedOrigins: "*"
+      allowedHeaders:
+        - Content-Type
+        - Authorization
+        - x-custom-header
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+      exposedResponseHeaders:
+        - x-custom-header
+        - Access-Control-Allow-Origin
+      maxAge: 6000 # in sec
+
+functions:
+  ping:
+    handler: handler.ping
+    events:
+      - httpApi:
+          path: /
+          method: get
+  pong:
+    handler: handler.pong
